@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>AT Locações - Aluguel de Motos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AT Locações - Aluguel de motos em Paulo Afonso - BA, segunda a sexta das 8h às 17h. Rua da Alegria.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0f4c81 0%, #041222 45%, #02060a 100%);
+      color: #f5f7ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container principal */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      background: linear-gradient(145deg, #06162a, #071f3d);
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-3d {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #0e67b5, #37a0ff);
+      box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.6),
+        inset 0 0 16px rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: perspective(600px) rotateX(6deg) rotateY(-10deg);
+    }
+
+    .logo-3d img {
+      max-width: 85%;
+      max-height: 85%;
+    }
+
+    .brand-text h1 {
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffcc33;
+      text-shadow: 0 0 12px rgba(255, 204, 51, 0.65);
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(145deg, rgba(10, 40, 80, 0.8), rgba(15, 80, 150, 0.6));
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border 0.18s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      border-color: #ffcc33;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-text {
+      padding: 20px;
+      background: linear-gradient(145deg, rgba(3, 16, 35, 0.95), rgba(8, 52, 110, 0.95));
+      border-radius: 26px;
+      box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.9),
+        inset 0 0 20px rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-text::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top left, rgba(255, 204, 51, 0.22), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #32ff7e;
+      box-shadow: 0 0 10px #32ff7e;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 strong {
+      color: #ffcc33;
+      text-shadow: 0 0 14px rgba(255, 204, 51, 0.85);
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-highlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(12, 64, 140, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, #ffcc33, #ff9f1a);
+      color: #111;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(255, 204, 51, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 1),
+        0 0 22px rgba(255, 204, 51, 0.95);
+    }
+
+    .btn-primary span.icon {
+      font-size: 1.1rem;
+    }
+
+    .mini-info {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .hero-side {
+      perspective: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-3d {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4 / 3;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #0a3a73, #0f6bd8);
+      box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.95),
+        inset 0 0 18px rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      position: relative;
+      transform: rotateY(-18deg) rotateX(14deg);
+      overflow: hidden;
+    }
+
+    .card-3d::before {
+      content: "";
+      position: absolute;
+      width: 220%;
+      height: 220%;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.26), transparent 55%),
+        radial-gradient(circle at bottom, rgba(255, 204, 51, 0.32), transparent 60%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+    }
+
+    .card-glass {
+      position: absolute;
+      inset: 14px;
+      border-radius: 22px;
+      background: rgba(2, 8, 20, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1;
+    }
+
+    .card-top-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.8;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .card-badge-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(7, 85, 220, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .badge-yellow {
+      background: rgba(255, 204, 51, 0.9);
+      color: #111;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .price {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .price strong {
+      font-size: 1.1rem;
+      color: #ffcc33;
+    }
+
+    .card-chip {
+      width: 72px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #ffcc33, #ff9f1a);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-chip::before,
+    .card-chip::after {
+      content: "";
+      position: absolute;
+      inset: 20%;
+      border-radius: 999px;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+    }
+
+    .card-chip::after {
+      inset: 32%;
+    }
+
+    /* SEÇÕES GERAIS */
+    section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.line {
+      width: 40px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffcc33, transparent);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .card-info {
+      padding: 14px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(4, 24, 52, 0.95), rgba(7, 49, 105, 0.95));
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .card-info h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #ffcc33;
+    }
+
+    .card-info p {
+      font-size: 0.86rem;
+      opacity: 0.9;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .list-check li::before {
+      content: "✔ ";
+      color: #32ff7e;
+    }
+
+    /* CONTATO */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .contact-box, .info-box {
+      padding: 16px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(4, 20, 40, 0.96), rgba(6, 40, 92, 0.96));
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    .contact-box form {
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 4px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      background: rgba(2, 10, 24, 0.9);
+      color: #fff;
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ffcc33;
+      box-shadow: 0 0 0 1px rgba(255, 204, 51, 0.5);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-secondary {
+      margin-top: 4px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: linear-gradient(145deg, rgba(3, 26, 60, 0.96), rgba(9, 84, 160, 0.96));
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 1);
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .info-list li {
+      margin-bottom: 6px;
+    }
+
+    .info-label {
+      font-size: 0.78rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .info-value {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding: 14px 10px 20px;
+      text-align: center;
+      font-size: 0.78rem;
+      opacity: 0.75;
+    }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .whatsapp-label {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .whatsapp-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 20% 0, #dcf8c6 0, #25d366 45%, #128c7e 100%);
+      box-shadow:
+        0 16px 30px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(37, 211, 102, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 1),
+        0 0 20px rgba(37, 211, 102, 0.95);
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        order: -1;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 12px;
+      }
+
+      header {
+        padding: 10px 12px;
+      }
+
+      .hero-text {
+        padding: 16px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-3d {
+        transform: rotateY(-10deg) rotateX(10deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <header>
+      <div class="logo-area">
+        <div class="logo-3d">
+          <!-- Troque o src abaixo pelo nome/ caminho da sua logo -->
+          <img src="logo-at-locacoes.png" alt="AT Locações Logo">
+        </div>
+        <div class="brand-text">
+          <h1>AT LOCAÇÕES</h1>
+          <p>Aluguel de motos em Paulo Afonso - BA</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#motivos">Vantagens</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-text">
+          <div class="hero-tag">
+            <span class="dot"></span>
+            <span>Pronto para rodar hoje mesmo</span>
+          </div>
+          <h2>
+            <strong>Aluguel de Motos</strong> com agilidade, conforto e segurança
+            em Paulo Afonso - BA.
+          </h2>
+          <p>
+            Ideal para entregadores, profissionais autônomos, empresas e quem
+            precisa de mobilidade rápida na cidade. Você escolhe o período,
+            nós entregamos a moto pronta para rodar.
+          </p>
+
+          <div class="hero-highlight">
+            <div class="pill">Atendimento: Seg a Sex, 8h às 17h</div>
+            <div class="pill">Local: Rua da Alegria, Paulo Afonso - BA</div>
+            <div class="pill">WhatsApp: (75) 98805-7548</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn-primary"
+               href="https://wa.me/5575988057548?text=Ol%C3%A1%20AT%20Loca%C3%A7%C3%B5es!%20Quero%20informações%20sobre%20aluguel%20de%20moto."
+               target="_blank" rel="noopener noreferrer">
+              <span class="icon">💬</span>
+              <span>Reservar via WhatsApp</span>
+            </a>
+            <div class="mini-info">
+              Resposta rápida no horário comercial.<br>
+              E-mail: <strong>awillian25@gmail.com</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="card-3d">
+            <div class="card-glass">
+              <div>
+                <div class="card-top-label">Plano recomendado</div>
+                <div class="card-title">Moto diária ou semanal</div>
+
+                <div class="card-badge-row">
+                  <div class="badge">Capacete incluso</div>
+                  <div class="badge">Moto revisada</div>
+                  <div class="badge badge-yellow">Sem burocracia</div>
+                </div>
+              </div>
+
+              <div class="card-bottom">
+                <div class="price">
+                  a partir de<br>
+                  <strong>valores sob consulta</strong><br>
+                  <span style="font-size:0.76rem;opacity:0.75;">
+                    Fale no WhatsApp e receba uma proposta em poucos minutos.
+                  </span>
+                </div>
+                <div class="card-chip"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVIÇOS -->
+      <section id="servicos">
+        <h2 class="section-title">
+          <span class="line"></span>
+          Nossos serviços
+        </h2>
+
+        <div class="cards-grid">
+          <div class="card-info">
+            <h3>Aluguel diário</h3>
+            <p>
+              Ideal para quem precisa de moto por um curto período ou para resolver
+              pendências na cidade com rapidez.
+            </p>
+            <ul class="list-check">
+              <li>Planos flexíveis</li>
+              <li>Documentação em dia</li>
+              <li>Retirada rápida</li>
+            </ul>
+          </div>
+
+          <div class="card-info">
+            <h3>Aluguel semanal</h3>
+            <p>
+              Perfeito para entregadores, representantes comerciais e profissionais
+              autônomos que precisam de mobilidade constante.
+            </p>
+            <ul class="list-check">
+              <li>Condições especiais para recorrência</li>
+              <li>Motos revisadas e econômicas</li>
+              <li>Suporte durante o horário comercial</li>
+            </ul>
+          </div>
+
+          <div class="card-info">
+            <h3>Aluguel para empresas</h3>
+            <p>
+              Sua empresa com motos à disposição para entregas, visitas técnicas
+              e serviços em geral, com praticidade na gestão.
+            </p>
+            <ul class="list-check">
+              <li>Possibilidade de contratos contínuos</li>
+              <li>Controle de utilização</li>
+              <li>Frota sempre pronta para rodar</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOTIVOS / VANTAGENS -->
+      <section id="motivos">
+        <h2 class="section-title">
+          <span class="line"></span>
+          Por que escolher a AT Locações?
+        </h2>
+
+        <div class="cards-grid">
+          <div class="card-info">
+            <h3>Atendimento humano</h3>
+            <p>
+              Atendimento direto pelo WhatsApp, com foco em entender sua necessidade
+              e oferecer o plano ideal para você.
+            </p>
+          </div>
+
+          <div class="card-info">
+            <h3>Localização estratégica</h3>
+            <p>
+              Estamos na <strong>Rua da Alegria, Paulo Afonso - BA</strong>,
+              facilitando retirada e devolução das motos.
+            </p>
+          </div>
+
+          <div class="card-info">
+            <h3>Foco em segurança</h3>
+            <p>
+              Motos revisadas, em boas condições de uso, sempre prontas para
+              encarar o dia a dia nas ruas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section id="contato">
+        <h2 class="section-title">
+          <span class="line"></span>
+          Fale com a gente
+        </h2>
+
+        <div class="contact-wrapper">
+          <div class="contact-box">
+            <p style="margin-bottom:8px;">
+              Use o formulário abaixo ou fale diretamente pelo WhatsApp para tirar
+              dúvidas e solicitar sua reserva.
+            </p>
+
+            <!-- Formulário simples (você pode integrar com Formspree, por exemplo) -->
+            <form>
+              <div>
+                <label>Nome completo
+                  <input type="text" placeholder="Seu nome" required>
+                </label>
+              </div>
+              <div>
+                <label>Telefone / WhatsApp
+                  <input type="tel" placeholder="(DDD) número" required>
+                </label>
+              </div>
+              <div>
+                <label>E-mail
+                  <input type="email" placeholder="seuemail@exemplo.com">
+                </label>
+              </div>
+              <div>
+                <label>Mensagem
+                  <textarea placeholder="Fale um pouco sobre o período e tipo de moto que você precisa."></textarea>
+                </label>
+              </div>
+              <button type="button" class="btn-secondary"
+                onclick="window.open('mailto:awillian25@gmail.com')">
+                Enviar por e-mail
+              </button>
+            </form>
+          </div>
+
+          <div class="info-box">
+            <ul class="info-list">
+              <li>
+                <div class="info-label">Endereço</div>
+                <div class="info-value">
+                  Rua da Alegria, Paulo Afonso - BA
+                </div>
+              </li>
+              <li>
+                <div class="info-label">Horário de atendimento</div>
+                <div class="info-value">
+                  Segunda a sexta-feira, das 8h às 17h
+                </div>
+              </li>
+              <li>
+                <div class="info-label">WhatsApp</div>
+                <div class="info-value">
+                  <a href="https://wa.me/5575988057548?text=Ol%C3%A1%20AT%20Loca%C3%A7%C3%B5es!%20Quero%20informações%20sobre%20aluguel%20de%20moto."
+                     target="_blank" rel="noopener noreferrer">
+                    (75) 98805-7548
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="info-label">E-mail</div>
+                <div class="info-value">
+                  <a href="mailto:awillian25@gmail.com">awillian25@gmail.com</a>
+                </div>
+              </li>
+            </ul>
+            <p style="margin-top:10px;font-size:0.8rem;opacity:0.8;">
+              Atendemos com foco em agilidade e transparência. Consulte a
+              disponibilidade das motos e condições atualizadas diretamente
+              pelo WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      AT Locações &copy; <span id="ano"></span> &middot;
+      Paulo Afonso - BA &middot; Todos os direitos reservados.
+    </footer>
+  </div>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-label">Fale agora pelo WhatsApp</div>
+    <a class="whatsapp-btn"
+       href="https://wa.me/5575988057548?text=Ol%C3%A1%20AT%20Loca%C3%A7%C3%B5es!%20Quero%20informações%20sobre%20aluguel%20de%20moto."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Conversar no WhatsApp">
+      &#128172;
+    </a>
+  </div>
+
+  <script>
+    // Coloca o ano atual no rodapé
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
