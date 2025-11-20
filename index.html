@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>AT Locações - Aluguel de Motos</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AT Locações - Aluguel de motos em Paulo Afonso - BA, segunda a sexta das 8h às 17h. Rua da Alegria.">
   <style>
@@ -54,25 +55,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-
-    .logo-3d {
-      width: 64px;
-      height: 64px;
-      border-radius: 20px;
-      background: linear-gradient(145deg, #0e67b5, #37a0ff);
-      box-shadow:
-        0 12px 24px rgba(0, 0, 0, 0.6),
-        inset 0 0 16px rgba(255, 255, 255, 0.16);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: perspective(600px) rotateX(6deg) rotateY(-10deg);
-    }
-
-    .logo-3d img {
-      max-width: 85%;
-      max-height: 85%;
     }
 
     .brand-text h1 {
@@ -444,57 +426,6 @@
       font-size: 0.9rem;
     }
 
-    .contact-box form {
-      display: grid;
-      gap: 10px;
-    }
-
-    label {
-      font-size: 0.78rem;
-      opacity: 0.85;
-    }
-
-    input, textarea {
-      width: 100%;
-      margin-top: 4px;
-      padding: 9px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      background: rgba(2, 10, 24, 0.9);
-      color: #fff;
-      font-size: 0.86rem;
-      outline: none;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #ffcc33;
-      box-shadow: 0 0 0 1px rgba(255, 204, 51, 0.5);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    .btn-secondary {
-      margin-top: 4px;
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      background: linear-gradient(145deg, rgba(3, 26, 60, 0.96), rgba(9, 84, 160, 0.96));
-      color: #fff;
-      cursor: pointer;
-      font-size: 0.88rem;
-      font-weight: 600;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 1);
-    }
-
     .info-list {
       list-style: none;
       margin-top: 4px;
@@ -624,10 +555,7 @@
   <div class="page">
     <header>
       <div class="logo-area">
-        <div class="logo-3d">
-          <!-- Troque o src abaixo pelo nome/ caminho da sua logo -->
-          <img src="logo-at-locacoes.png" alt="AT Locações Logo">
-        </div>
+        
         <div class="brand-text">
           <h1>AT LOCAÇÕES</h1>
           <p>Aluguel de motos em Paulo Afonso - BA</p>
@@ -686,7 +614,7 @@
                 <div class="card-title">Moto diária ou semanal</div>
 
                 <div class="card-badge-row">
-                  <div class="badge">Capacete incluso</div>
+                  <div class="badge"></div>
                   <div class="badge">Moto revisada</div>
                   <div class="badge badge-yellow">Sem burocracia</div>
                 </div>
@@ -800,37 +728,20 @@
         <div class="contact-wrapper">
           <div class="contact-box">
             <p style="margin-bottom:8px;">
-              Use o formulário abaixo ou fale diretamente pelo WhatsApp para tirar
-              dúvidas e solicitar sua reserva.
+              Fale diretamente pelo WhatsApp para tirar dúvidas e solicitar sua reserva.
             </p>
 
-            <!-- Formulário simples (você pode integrar com Formspree, por exemplo) -->
-            <form>
-              <div>
-                <label>Nome completo
-                  <input type="text" placeholder="Seu nome" required>
-                </label>
-              </div>
-              <div>
-                <label>Telefone / WhatsApp
-                  <input type="tel" placeholder="(DDD) número" required>
-                </label>
-              </div>
-              <div>
-                <label>E-mail
-                  <input type="email" placeholder="seuemail@exemplo.com">
-                </label>
-              </div>
-              <div>
-                <label>Mensagem
-                  <textarea placeholder="Fale um pouco sobre o período e tipo de moto que você precisa."></textarea>
-                </label>
-              </div>
-              <button type="button" class="btn-secondary"
-                onclick="window.open('mailto:awillian25@gmail.com')">
-                Enviar por e-mail
-              </button>
-            </form>
+            <a class="btn-primary"
+               style="margin-top:12px; display:inline-flex; text-align:center;"
+               href="https://wa.me/5575988057548?text=Ol%C3%A1%20AT%20Loca%C3%A7%C3%B5es!%20Quero%20informações%20sobre%20aluguel%20de%20moto."
+               target="_blank" rel="noopener noreferrer">
+              <span class="icon">⚡</span>
+              <span>Atendimento imediato no WhatsApp</span>
+            </a>
+
+            <p style="margin-top:10px; font-size:0.8rem; opacity:0.8;">
+              Resposta rápida no horário comercial.
+            </p>
           </div>
 
           <div class="info-box">
@@ -896,4 +807,3 @@
   </script>
 </body>
 </html>
-
